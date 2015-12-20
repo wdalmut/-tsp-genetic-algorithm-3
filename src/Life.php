@@ -11,7 +11,7 @@ class Life
     {
         $this->mutator = $mutator;
         $this->recombine = $recombine;
-        $this->setGeneration(10000);
+        $this->setGeneration(50000);
     }
 
     public function setGeneration($generation)
@@ -26,7 +26,6 @@ class Life
         $life->insert($this->mutator->mutate($roadmap));
 
         for ($i=0; $i<$this->generation; $i++) {
-            $pos = rand(1, count($life))-1;
             $life->insert($this->mutator->mutate($life->current()));
         }
 
